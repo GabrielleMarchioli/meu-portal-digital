@@ -1,8 +1,11 @@
+import { useRef } from "react";
 import { Download, ShieldCheck, GraduationCap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { student } from "@/data/student";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 const QrPlaceholder = () => (
   <div className="grid grid-cols-10 gap-[2px] rounded-md bg-white p-2">
@@ -16,6 +19,43 @@ const QrPlaceholder = () => (
 
 const Carteirinha = () => {
   const { toast } = useToast();
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const handleDownloadPDF = async () => {
+    if (!cardRef.current) return;
+
+    try {
+      const canvas = await html2canvas(cardRef.current, {
+        scale: 2,
+        backgroundColor: "#ffffff",
+      });
+
+      const pdf = new jsPDF({
+        orientation: "landscape",
+        unit: "mm",
+        format: [85.6, 53.98],
+      });
+
+      const imgWidth = 85.6;
+      const imgHeight = 53.98;
+
+      const imgData = canvas.toDataURL("image/png");
+      pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+
+      pdf.save(`carteirinha-${student.ra}.pdf`);
+
+      toast({
+        title: "Sucesso",
+        description: "Carteirinha baixada com sucesso!",
+      });
+    } catch (error) {
+      toast({
+        title: "Erro",
+        description: "Erro ao gerar o PDF. Tente novamente.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <div className="mx-auto max-w-3xl space-y-6">
@@ -24,7 +64,7 @@ const Carteirinha = () => {
         <p className="text-sm text-muted-foreground">Apresente sua credencial sempre que solicitada.</p>
       </div>
 
-      <Card className="overflow-hidden border-0 bg-gradient-card text-primary-foreground shadow-elegant">
+      <Card ref={cardRef} className="overflow-hidden border-0 bg-gradient-card text-primary-foreground shadow-elegant">
         {/* Faixa superior */}
         <div className="flex items-center justify-between border-b border-white/10 px-6 py-3">
           <div className="flex items-center gap-2">
@@ -111,10 +151,7 @@ const Carteirinha = () => {
         </div>
 
         <div className="mt-6 flex flex-wrap gap-3">
-          <Button
-            onClick={() => toast({ title: "Em breve", description: "Download em PDF estará disponível em breve." })}
-            className="gap-2 bg-gradient-primary"
-          >
+          <Button onClick={handleDownloadPDF} className="gap-2 bg-gradient-primary">
             <Download className="h-4 w-4" /> Baixar PDF
           </Button>
           <Button

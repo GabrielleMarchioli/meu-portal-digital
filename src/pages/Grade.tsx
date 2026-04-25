@@ -9,7 +9,7 @@ const Grade = () => {
     <div className="mx-auto max-w-7xl space-y-6">
       <div>
         <h1 className="font-display text-3xl text-primary">Grade de horários</h1>
-        <p className="text-sm text-muted-foreground">3º semestre · Período noturno</p>
+        <p className="text-sm text-muted-foreground">2º semestre · Período noturno</p>
       </div>
 
       {/* Tabela desktop */}

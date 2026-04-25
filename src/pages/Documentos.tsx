@@ -30,7 +30,11 @@ const Documentos = () => {
                 variant="outline"
                 className="gap-1"
                 onClick={() =>
-                  toast({ title: "Em breve", description: `Download de "${d.name}" estará disponível em breve.` })
+                  toast({
+                    title: "Sistema indisponível",
+                    description: "O sistema de documentos está indisponível no momento. Tente novamente mais tarde.",
+                    variant: "destructive",
+                  })
                 }
               >
                 <Download className="h-4 w-4" /> Baixar
