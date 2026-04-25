@@ -21,6 +21,7 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
+import { student } from "@/data/student";
 
 const academic = [
   { title: "Dashboard", url: "/", icon: LayoutDashboard },
@@ -59,7 +60,7 @@ export function AppSidebar() {
           </div>
           {!collapsed && (
             <div className="leading-tight">
-              <p className="font-display text-base text-sidebar-accent-foreground">Univ Portal</p>
+              <p className="font-display text-base text-sidebar-accent-foreground">UniV Portal</p>
               <p className="text-[11px] uppercase tracking-wider text-sidebar-foreground/70">Aluno</p>
             </div>
           )}

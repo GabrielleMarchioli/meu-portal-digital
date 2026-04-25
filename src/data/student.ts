@@ -1,23 +1,24 @@
 export const student = {
-  ra: "20231234",
+  ra: "20231235",
   password: "123456",
   name: "Danilo de Castro Barbiere",
   shortName: "Danilo",
   initials: "DCB",
+  photo: "/danilo.jpeg",
   course: "Ciência da Computação",
   degree: "Bacharelado",
   campus: "Campus Central",
   shift: "Noturno",
-  enrollmentDate: "01/02/2023",
-  cardValidUntil: "31/12/2026",
-  cardIssuedAt: "10/02/2026",
+  enrollmentDate: "15/08/2025",
+  cardValidUntil: "31/12/2027",
+  cardIssuedAt: "01/04/2026",
   status: "Aluno regular",
   email: "danilo.barbiere@univ.edu.br",
   cpf: "***.456.789-**",
-  birth: "14/05/2002",
-  currentSemester: 3,
+  birth: "22/09/2002",
+  currentSemester: 2,
   totalSemesters: 8,
-  expectedGraduation: "Dezembro / 2027",
+  expectedGraduation: "Março / 2029",
   cr: 8.4,
   creditsDone: 540,
   creditsTotal: 3200,
@@ -133,7 +134,7 @@ export const days = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
 export const history = [
   {
     semester: 1,
-    period: "2023.1",
+    period: "2025.2",
     status: "concluido" as const,
     average: 8.6,
     subjects: [
@@ -146,8 +147,8 @@ export const history = [
   },
   {
     semester: 2,
-    period: "2023.2",
-    status: "concluido" as const,
+    period: "2026.1 (atual)",
+    status: "atual" as const,
     average: 8.2,
     subjects: [
       { name: "Programação Estruturada", grade: 9.2 },
@@ -159,8 +160,8 @@ export const history = [
   },
   {
     semester: 3,
-    period: "2024.1",
-    status: "concluido" as const,
+    period: "2026.2",
+    status: "futuro" as const,
     average: 8.3,
     subjects: [
       { name: "Estatística", grade: 8.0 },
@@ -170,11 +171,11 @@ export const history = [
       { name: "Ética e Sociedade", grade: 8.5 },
     ],
   },
-  { semester: 4, period: "2024.2 (atual)", status: "atual" as const },
-  { semester: 5, period: "2025.1", status: "futuro" as const },
-  { semester: 6, period: "2025.2", status: "futuro" as const },
-  { semester: 7, period: "2026.1", status: "futuro" as const },
-  { semester: 8, period: "2026.2", status: "futuro" as const },
+  { semester: 4, period: "2027.1", status: "futuro" as const },
+  { semester: 5, period: "2027.2", status: "futuro" as const },
+  { semester: 6, period: "2028.1", status: "futuro" as const },
+  { semester: 7, period: "2028.2", status: "futuro" as const },
+  { semester: 8, period: "2029.1", status: "futuro" as const },
 ];
 
 export const upcomingSubjects = [

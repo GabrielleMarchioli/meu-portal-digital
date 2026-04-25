@@ -38,7 +38,7 @@ const Login = () => {
         <div className="hidden text-primary-foreground lg:block">
           <div className="mb-6 inline-flex items-center gap-3 rounded-full bg-white/10 px-4 py-2 backdrop-blur">
             <GraduationCap className="h-5 w-5 text-accent" />
-            <span className="text-sm font-medium tracking-wide">Universidade · Est. 1968</span>
+            <span className="text-sm font-medium tracking-wide">UniV · Est. 1968</span>
           </div>
           <h1 className="font-display text-5xl leading-tight">
             Sua vida acadêmica,<br />

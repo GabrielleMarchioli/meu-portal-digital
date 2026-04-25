@@ -42,9 +42,7 @@ const AppLayout = () => {
                 <p className="text-sm font-medium leading-none">{student.name}</p>
                 <p className="text-xs text-muted-foreground">RA {student.ra}</p>
               </div>
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-primary text-sm font-semibold text-primary-foreground shadow-card">
-                {student.initials}
-              </div>
+              <img src="/danilo.jpeg" alt={student.name} className="h-10 w-10 rounded-full object-cover shadow-card" />
               <Button variant="ghost" size="sm" onClick={handleLogout} className="gap-2">
                 <LogOut className="h-4 w-4" />
                 <span className="hidden sm:inline">Sair</span>

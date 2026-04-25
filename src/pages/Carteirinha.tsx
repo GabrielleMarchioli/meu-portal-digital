@@ -32,7 +32,7 @@ const Carteirinha = () => {
               <GraduationCap className="h-4 w-4" />
             </div>
             <div className="leading-tight">
-              <p className="font-display text-sm">Universidade</p>
+              <p className="font-display text-sm">UniV</p>
               <p className="text-[10px] uppercase tracking-wider text-primary-foreground/70">
                 Identificação Estudantil
               </p>
@@ -45,8 +45,12 @@ const Carteirinha = () => {
 
         <div className="grid gap-6 p-6 md:grid-cols-[auto,1fr,auto] md:items-center">
           {/* Foto */}
-          <div className="flex h-32 w-28 items-center justify-center rounded-md bg-gradient-to-br from-white/20 to-white/5 ring-1 ring-white/20">
-            <span className="font-display text-4xl">{student.initials}</span>
+          <div className="flex h-32 w-28 items-center justify-center rounded-md bg-gradient-to-br from-white/20 to-white/5 ring-1 ring-white/20 overflow-hidden">
+            {student.photo ? (
+              <img src={student.photo} alt={student.name} className="h-full w-full object-cover" />
+            ) : (
+              <span className="font-display text-4xl">{student.initials}</span>
+            )}
           </div>
 
           {/* Dados */}
