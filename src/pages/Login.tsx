@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { GraduationCap, Info, Lock, User } from "lucide-react";
+import { GraduationCap, Lock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -69,7 +69,7 @@ const Login = () => {
                 <User className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
                 <Input
                   id="ra"
-                  placeholder="20231234"
+                  placeholder="20211734"
                   value={ra}
                   onChange={(e) => setRa(e.target.value)}
                   className="pl-9"
@@ -85,7 +85,7 @@ const Login = () => {
                 <Input
                   id="password"
                   type="password"
-                  placeholder="••••••"
+                  placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="pl-9"
@@ -99,16 +99,6 @@ const Login = () => {
             </Button>
           </form>
 
-          <div className="mt-6 rounded-md border border-accent/30 bg-accent-soft p-4">
-            <div className="flex items-start gap-2">
-              <Info className="mt-0.5 h-4 w-4 shrink-0 text-accent" />
-              <div className="text-xs text-accent-foreground">
-                <p className="font-semibold">Credenciais de teste</p>
-                <p className="mt-1">RA: <span className="font-mono">20231234</span></p>
-                <p>Senha: <span className="font-mono">123456</span></p>
-              </div>
-            </div>
-          </div>
         </Card>
       </div>
     </div>
