@@ -1,0 +1,239 @@
+export const student = {
+  ra: "20231234",
+  password: "123456",
+  name: "Danilo de Castro Barbiere",
+  shortName: "Danilo",
+  initials: "DCB",
+  course: "Ciência da Computação",
+  degree: "Bacharelado",
+  campus: "Campus Central",
+  shift: "Noturno",
+  enrollmentDate: "01/02/2023",
+  cardValidUntil: "31/12/2026",
+  cardIssuedAt: "10/02/2026",
+  status: "Aluno regular",
+  email: "danilo.barbiere@univ.edu.br",
+  cpf: "***.456.789-**",
+  birth: "14/05/2002",
+  currentSemester: 3,
+  totalSemesters: 8,
+  expectedGraduation: "Dezembro / 2027",
+  cr: 8.4,
+  creditsDone: 540,
+  creditsTotal: 3200,
+};
+
+export const subjects = [
+  {
+    code: "CC301",
+    name: "Estrutura de Dados",
+    professor: "Prof. Dra. Helena Martins",
+    color: "bg-blue-600",
+    grades: { p1: 8.5, p2: 7.0, work: 9.0 },
+    average: 8.0,
+    absences: 4,
+    absenceLimit: 18,
+    status: "Em curso",
+    syllabus: "Listas, pilhas, filas, árvores, grafos e algoritmos de busca e ordenação.",
+  },
+  {
+    code: "CC302",
+    name: "Cálculo II",
+    professor: "Prof. Dr. Roberto Aoki",
+    color: "bg-rose-600",
+    grades: { p1: 6.5, p2: 5.5, work: 7.0 },
+    average: 6.2,
+    absences: 12,
+    absenceLimit: 18,
+    status: "Atenção",
+    syllabus: "Integrais, técnicas de integração, séries e equações diferenciais.",
+  },
+  {
+    code: "CC303",
+    name: "Banco de Dados I",
+    professor: "Prof. Me. Camila Soares",
+    color: "bg-emerald-600",
+    grades: { p1: 9.0, p2: 8.5, work: 10.0 },
+    average: 9.1,
+    absences: 2,
+    absenceLimit: 18,
+    status: "Em curso",
+    syllabus: "Modelo relacional, SQL, normalização, transações e índices.",
+  },
+  {
+    code: "CC304",
+    name: "Programação Orientada a Objetos",
+    professor: "Prof. Me. Lucas Andrade",
+    color: "bg-amber-600",
+    grades: { p1: 8.0, p2: 9.0, work: 9.5 },
+    average: 8.7,
+    absences: 3,
+    absenceLimit: 18,
+    status: "Em curso",
+    syllabus: "Classes, herança, polimorfismo, interfaces e padrões de projeto.",
+  },
+  {
+    code: "CC305",
+    name: "Arquitetura de Computadores",
+    professor: "Prof. Dr. Fernando Lopes",
+    color: "bg-violet-600",
+    grades: { p1: 7.0, p2: 7.5, work: 8.0 },
+    average: 7.4,
+    absences: 6,
+    absenceLimit: 18,
+    status: "Em curso",
+    syllabus: "Organização de processadores, memória, pipeline e instruções.",
+  },
+  {
+    code: "LE101",
+    name: "Inglês Instrumental",
+    professor: "Prof.ª Patricia Reyes",
+    color: "bg-teal-600",
+    grades: { p1: 9.5, p2: 9.0, work: 9.5 },
+    average: 9.3,
+    absences: 1,
+    absenceLimit: 12,
+    status: "Em curso",
+    syllabus: "Leitura e compreensão de textos técnicos em inglês.",
+  },
+];
+
+type Slot = { code: string; room: string };
+const slot = (code: string, room: string): Slot => ({ code, room });
+
+export const schedule: Record<string, Record<string, Slot | null>> = {
+  "19:00 - 20:30": {
+    Seg: slot("CC301", "Lab 03"),
+    Ter: slot("CC302", "Sala 201"),
+    Qua: slot("CC303", "Lab 05"),
+    Qui: slot("CC304", "Lab 02"),
+    Sex: slot("CC305", "Sala 305"),
+    Sab: slot("LE101", "Sala 110"),
+  },
+  "20:40 - 22:10": {
+    Seg: slot("CC304", "Lab 02"),
+    Ter: slot("CC301", "Lab 03"),
+    Qua: slot("CC305", "Sala 305"),
+    Qui: slot("CC302", "Sala 201"),
+    Sex: slot("CC303", "Lab 05"),
+    Sab: null,
+  },
+  "22:20 - 22:40": {
+    Seg: null,
+    Ter: slot("CC303", "Lab 05"),
+    Qua: null,
+    Qui: slot("CC301", "Lab 03"),
+    Sex: null,
+    Sab: null,
+  },
+};
+
+export const days = ["Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
+
+export const history = [
+  {
+    semester: 1,
+    period: "2023.1",
+    status: "concluido" as const,
+    average: 8.6,
+    subjects: [
+      { name: "Algoritmos e Lógica", grade: 9.0 },
+      { name: "Cálculo I", grade: 7.5 },
+      { name: "Geometria Analítica", grade: 8.0 },
+      { name: "Introdução à Computação", grade: 9.5 },
+      { name: "Português Instrumental", grade: 8.8 },
+    ],
+  },
+  {
+    semester: 2,
+    period: "2023.2",
+    status: "concluido" as const,
+    average: 8.2,
+    subjects: [
+      { name: "Programação Estruturada", grade: 9.2 },
+      { name: "Álgebra Linear", grade: 7.0 },
+      { name: "Lógica Matemática", grade: 8.5 },
+      { name: "Sistemas Digitais", grade: 8.0 },
+      { name: "Metodologia Científica", grade: 8.5 },
+    ],
+  },
+  {
+    semester: 3,
+    period: "2024.1",
+    status: "concluido" as const,
+    average: 8.3,
+    subjects: [
+      { name: "Estatística", grade: 8.0 },
+      { name: "Sistemas Operacionais I", grade: 8.5 },
+      { name: "Engenharia de Software", grade: 9.0 },
+      { name: "Redes de Computadores I", grade: 7.5 },
+      { name: "Ética e Sociedade", grade: 8.5 },
+    ],
+  },
+  { semester: 4, period: "2024.2 (atual)", status: "atual" as const },
+  { semester: 5, period: "2025.1", status: "futuro" as const },
+  { semester: 6, period: "2025.2", status: "futuro" as const },
+  { semester: 7, period: "2026.1", status: "futuro" as const },
+  { semester: 8, period: "2026.2", status: "futuro" as const },
+];
+
+export const upcomingSubjects = [
+  "Sistemas Operacionais II",
+  "Compiladores",
+  "Inteligência Artificial",
+  "Engenharia de Software II",
+  "Computação Gráfica",
+];
+
+export const calendar = [
+  { date: "28/04/2026", type: "Prova", title: "P1 — Cálculo II", desc: "Sala 201 — 19h" },
+  { date: "05/05/2026", type: "Trabalho", title: "Entrega: Modelagem ER", desc: "Banco de Dados I" },
+  { date: "10/05/2026", type: "Prova", title: "P1 — Estrutura de Dados", desc: "Lab 03 — 19h" },
+  { date: "20/05/2026", type: "Evento", title: "Semana Acadêmica", desc: "Auditório principal" },
+  { date: "01/06/2026", type: "Feriado", title: "Recesso", desc: "Sem aulas" },
+  { date: "15/06/2026", type: "Prova", title: "P2 — Arquitetura", desc: "Sala 305 — 19h" },
+  { date: "30/06/2026", type: "Matrícula", title: "Renovação 2026.2", desc: "Portal acadêmico" },
+];
+
+export const announcements = [
+  {
+    id: 1,
+    author: "Coordenação de Computação",
+    date: "23/04/2026",
+    title: "Semana Acadêmica 2026 — Inscrições abertas",
+    body: "Estão abertas as inscrições para a Semana Acadêmica de Ciência da Computação. Palestras, minicursos e hackathon. Inscreva-se até 10/05.",
+    isNew: true,
+  },
+  {
+    id: 2,
+    author: "Prof. Dra. Helena Martins",
+    date: "22/04/2026",
+    title: "Lista de exercícios — Árvores AVL",
+    body: "Pessoal, a lista 04 já está disponível na pasta da disciplina. Entrega até 06/05.",
+    isNew: true,
+  },
+  {
+    id: 3,
+    author: "Secretaria Acadêmica",
+    date: "18/04/2026",
+    title: "Atualização cadastral",
+    body: "Atualize seus dados cadastrais no portal até 30/04 para evitar pendências na próxima matrícula.",
+    isNew: false,
+  },
+  {
+    id: 4,
+    author: "Prof. Dr. Roberto Aoki",
+    date: "15/04/2026",
+    title: "Monitoria de Cálculo II",
+    body: "Monitoria toda terça e quinta, das 18h às 19h, na sala 210.",
+    isNew: false,
+  },
+];
+
+export const documents = [
+  { name: "Histórico Escolar", desc: "Documento oficial com todas as disciplinas cursadas.", date: "10/04/2026" },
+  { name: "Declaração de Matrícula", desc: "Comprovante de vínculo com a instituição.", date: "15/02/2026" },
+  { name: "Comprovante de Pagamento", desc: "Mensalidade — Abril/2026.", date: "05/04/2026" },
+  { name: "Ementa das Disciplinas", desc: "Conteúdo programático do semestre atual.", date: "01/02/2026" },
+  { name: "Calendário Acadêmico 2026", desc: "Datas oficiais do ano letivo.", date: "15/01/2026" },
+];
